@@ -1,0 +1,97 @@
+import "dart:io";
+
+add(lst) {
+  num m = lst[0];
+  for (var i = 1; i < lst.length; i++) {
+    m = m + lst[i];
+  }
+  return m;
+}
+
+subtract(lst) {
+  num m = lst[0];
+  for (var i = 1; i < lst.length; i++) {
+    m = m - lst[i];
+  }
+  return m;
+}
+
+multiply(lst) {
+  num m = lst[0];
+  for (var i = 1; i < lst.length; i++) {
+    m = m * lst[i];
+  }
+  return m;
+}
+
+divide(lst) {
+  num m = lst[0];
+  //for (var i = 1; i < lst.length; i + 2) {
+  //if (int.parse(lst[i]) == 0) {
+  //return "Error can't divide with 0";
+  //}
+  //}
+  for (var i = 1; i < lst.length; i++) {
+    m = m / lst[i];
+  }
+  return m;
+}
+
+modulo(lst) {
+  num m = lst[0];
+  for (var i = 1; i < lst.length; i++) {
+    m = m % lst[i];
+  }
+  return m;
+}
+
+void main() {
+  num x, m = 0;
+  List<int> list1 = [];
+  print(
+      'Basic Calculator \n 1. Addition \n 2. Subtraction \n 3. Multiplication \n 4. Division \n 5. Modulo \n 6. Exit ');
+  do {
+    print('Enter your choice (1,2,3,4,5,6) : ');
+    x = num.parse(stdin.readLineSync()!);
+
+    if (x > 0 && x < 6) {
+      print('Enter the number of numbers:');
+      List<int> list1 = [];
+      int? n = int.parse(stdin.readLineSync()!);
+      for (int i = 0; i < n; i++) {
+        list1.insert(i, int.parse(stdin.readLineSync()!));
+      }
+      print(list1);
+
+      switch (x) {
+        case 1:
+          m = add(list1);
+          print("Addition of  numbers in list1 is: $m");
+          break;
+        case 2:
+          m = subtract(list1);
+          print("Subtraction of numbers in list1 is: $m");
+          break;
+        case 3:
+          m = multiply(list1);
+          print("Multiplication of numbers in list1 is: $m");
+          break;
+        case 4:
+          m = divide(list1);
+          print("division of numbers in list1 is: $m");
+          break;
+        case 5:
+          m = modulo(list1);
+          print("Modulo of numbers in list1 is: $m");
+          break;
+        case 6:
+          break;
+      }
+    } else if (x == 6) {
+      print('Exiting Calcualtor');
+      break;
+    } else {
+      print('Select from the Options');
+    }
+  } while (true);
+}
