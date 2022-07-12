@@ -26,11 +26,6 @@ multiply(lst) {
 
 divide(lst) {
   num m = lst[0];
-  //for (var i = 1; i < lst.length; i + 2) {
-  //if (int.parse(lst[i]) == 0) {
-  //return "Error can't divide with 0";
-  //}
-  //}
   for (var i = 1; i < lst.length; i++) {
     m = m / lst[i];
   }
